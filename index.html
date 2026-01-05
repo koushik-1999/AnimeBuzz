@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeBuZz – Premium Anime App</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg:#000000;
+  --card:#0e0e15;
+  --accent:#ff2e93;
+  --accent2:#6a5cff;
+  --text:#ffffff;
+  --muted:#9ca3af;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+
+body{
+  background:radial-gradient(circle at top,#0a0a14,#000);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  padding:20px;
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+}
+header span{color:var(--accent)}
+
+/* HERO */
+.hero{
+  padding:30px 20px;
+  text-align:center;
+}
+.hero img{
+  width:150px;
+  border-radius:28px;
+  box-shadow:0 0 30px rgba(255,46,147,.6);
+}
+.hero h1{
+  margin-top:18px;
+  font-size:28px;
+}
+.hero p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:18px;
+}
+.stat{text-align:center}
+.stat b{font-size:16px}
+.stat span{font-size:11px;color:var(--muted)}
+
+/* DOWNLOAD */
+.download{
+  margin-top:25px;
+}
+.download a{
+  padding:16px 40px;
+  border-radius:50px;
+  font-weight:600;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 0 40px rgba(106,92,255,.6);
+  animation:pulse 2s infinite;
+  display:inline-block;
+  transition:0.2s ease;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 15px rgba(255,46,147,.4)}
+  50%{box-shadow:0 0 40px rgba(255,46,147,.9)}
+  100%{box-shadow:0 0 15px rgba(255,46,147,.4)}
+}
+
+/* INFO */
+.info{
+  margin:30px 20px;
+  background:var(--card);
+  border-radius:20px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  text-align:center;
+}
+.info b{display:block;font-size:14px}
+.info div{font-size:12px}
+
+/* REVIEWS */
+.reviews{padding:20px}
+.reviews h2{margin-bottom:15px}
+.review{
+  background:var(--card);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+}
+.review b{font-size:13px}
+.review span{color:gold;font-size:12px}
+.review p{font-size:12px;color:var(--muted);margin-top:5px}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* ===== TELEGRAM NOTIFICATION ===== */
+.tg-popup{
+  position:fixed;
+  bottom:-120px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:420px;
+  background:#111827;
+  border-radius:18px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,.8);
+  transition:0.5s;
+  z-index:9999;
+}
+.tg-popup.show{bottom:15px}
+
+/* PERFECT CIRCLE + PERFECT CENTER */
+.tg-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#229ED9;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+}
+
+/* TRUE CENTERED TELEGRAM LOGO */
+.tg-icon svg{
+  width:26px;
+  height:26px;
+  display:block;
+}
+
+.tg-text{
+  flex:1;
+  font-size:13px;
+}
+.tg-text b{
+  display:block;
+  font-size:14px;
+}
+
+.tg-btn{
+  background:#229ED9;
+  color:white;
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:12px;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.tg-close{
+  position:absolute;
+  top:6px;
+  right:10px;
+  font-size:16px;
+  color:#9ca3af;
+  cursor:pointer;
+}
+
+/* ===== GLOBAL TOUCH & SHADOW FIX (PREMIUM FEEL) ===== */
+
+/* Remove Android blue/grey tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Remove focus outline everywhere */
+*:focus {
+  outline: none !important;
+}
+
+/* Anchor & button press fix */
+a, button {
+  outline: none;
+  border: none;
+}
+
+/* Disable ugly press shadow */
+a:active,
+a:focus,
+button:active,
+button:focus {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Keep original glow only (no dark overlay) */
+.download a:active {
+  box-shadow: 0 0 40px rgba(106,92,255,.6);
+}
+
+/* Telegram JOIN button clean press */
+.tg-btn:active {
+  box-shadow: none;
+  opacity: 0.9; /* soft premium feedback */
+}
+
+/* Card / popup accidental press shadow fix */
+.review:active,
+.info div:active,
+.tg-popup:active {
+  box-shadow: none !important;
+}
+</style>
+</head>
+
+<body>
+
+<header>Anime<span>BuZz</span></header>
+
+<section class="hero">
+  <img src="icon.png" width="150" height="150" alt="App Icon">
+  <h1>Premium Anime Streaming</h1>
+  <p>Watch Latest Anime in HD • Fast • No Ads</p>
+
+  <div class="stats">
+    <div class="stat"><b>4.3 ⭐</b><span>Rating</span></div>
+    <div class="stat"><b>1M+</b><span>Downloads</span></div>
+    <div class="stat"><b>Anime</b><span>Category</span></div>
+  </div>
+
+  <div class="download">
+    <a href="AnimeBuZz.apk">⬇ DOWNLOAD APK</a>
+  </div>
+</section>
+
+<section class="info">
+  <div><b>Version</b>1.0.0</div>
+  <div><b>Size</b>18 MB</div>
+  <div><b>Updated</b>Jan 2026</div>
+</section>
+
+<section class="reviews">
+  <h2>User Reviews</h2>
+
+  <div class="review">
+    <b>Rohan</b> <span>★★★★★</span>
+    <p>UI bahut premium hai, anime smooth chalta hai 🔥</p>
+  </div>
+
+  <div class="review">
+    <b>Ankit</b> <span>★★★★★</span>
+    <p>No ads + fast streaming, best anime app ❤️</p>
+  </div>
+
+  <div class="review">
+    <b>Neha</b> <span>★★★★☆</span>
+    <p>Thanks My Favourite Dubbing Anime Available  😍</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 AnimeBuZz • Made with ❤️ in India •
+</footer>
+
+<!-- TELEGRAM POPUP -->
+<div class="tg-popup" id="tgPopup">
+  <div class="tg-icon">
+    <!-- OFFICIAL TELEGRAM LOGO (PERFECT CENTER) -->
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="120" r="120" fill="#229ED9"/>
+      <path fill="#fff"
+        d="M179.9 71.7L154 187.2c-1.9 8.3-6.9 10.3-14 6.4l-38.8-28.6-18.7 18
+        c-2.1 2.1-3.8 3.8-7.8 3.8l2.8-39.6 72.1-65c3.1-2.8-.7-4.4-4.8-1.6l-89.1 56.1
+        -38.4-12c-8.3-2.6-8.5-8.3 1.7-12.3l150.1-57.9c6.9-2.6 12.9 1.6 10.7 11.1z"/>
+    </svg>
+  </div>
+
+  <div class="tg-text">
+    <b>Join Telegram Channel</b>
+    Anime updates, new APK & alerts
+  </div>
+
+  <a class="tg-btn" href="https://t.me/animebuzzofficial">JOIN</a>
+  <div class="tg-close" onclick="closeTG()">✕</div>
+</div>
+
+<script>
+setTimeout(()=>{
+  document.getElementById("tgPopup").classList.add("show");
+},2500);
+
+function closeTG(){
+  document.getElementById("tgPopup").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
